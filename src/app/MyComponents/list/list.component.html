@@ -1,0 +1,20 @@
+<div class="container-fluid text-center my-0">
+
+  <h1 class="text-center mb-5">List Presented by Amit</h1>
+
+  <app-add-list (itemAdd)="addList1($event)"></app-add-list>
+  <h4>Your Lists</h4>
+
+  <!-- In Angular templates, you don't need to use this to access component properties. You can directly reference them by their names. -->
+  <div *ngIf="this.listing.length == 0; else elseBlock">No item to display</div>
+  <ng-template #elseBlock>
+    <div *ngFor="let item of listing; index as i">
+      <app-list-item
+        [item]="item"
+        [i]="i"
+        (itemDelete)="deleteList1($event)"
+        (todoCheckbox)="toggleItem($event)"
+      ></app-list-item>
+    </div>
+  </ng-template>
+</div>

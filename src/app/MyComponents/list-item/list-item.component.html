@@ -1,0 +1,13 @@
+
+<div class="my-3">
+  <!-- In this code, the h6 element will have the nostrike class applied when item.active is truthy, and the strike class applied when item.active is falsy. This allows for conditional styling based on the value of item.active. The checkbox and button elements are also styled using Bootstrap classes for form-check and button styling. -->
+  <h6 [class.nostrike]="item.active" [class.strike]="!item.active">{{item.title}}</h6>
+  <p [class.nostrike]="item.active" [class.strike]="!item.active">{{item.desc}}</p>
+
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" (click)="onCheckboxClick(item)" [checked] ="!item.active">
+    <label class="form-check-label" for="item{i}"> Done</label>
+  </div>
+
+  <button class="btn btn-danger btn-sm" (click)="onClick(item)">Delete</button>
+</div>
